@@ -50,3 +50,11 @@ member of a set.
 这个人写了两版的hash function, 一个是bloomy用的lookup3.c, 它可以生成32位(uint32_t)的hash值,如果生成两个hash的话,那就是64位了.
 
 另一个是SpookyV2.cpp, 它可以生成64位(uint64_t)的hash值,如果生成两个hash的话,那就是128位了.
+
+# 应用例子
+
+cdn做缓存,用bloom filter来记录一个网址是否之前被访问过,如果是,才缓存,否则,不缓存.
+
+也就是说,当一个网址在第二次被访问时才缓存它.
+
+这个方法解决了 "one-hit-wonders" 问题.
